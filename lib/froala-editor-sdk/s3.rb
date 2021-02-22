@@ -31,7 +31,7 @@ module FroalaEditorSDK
     # +key+:: Key to use for creating the digest
     # +data+:: Data to be used for creating the digest
     def self.sign(key, data)
-      OpenSSL::HMAC.digest(OpenSSL::Digest::SHA256.new, key, data.force_encoding(Encoding::UTF_8))
+      OpenSSL::HMAC.digest(OpenSSL::Digest::SHA256.new, key, data.dup.force_encoding(Encoding::UTF_8))
     end
 
     # Encodes to Base64 the policy data and replaces new lines chars.
